@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Pirates
 {
@@ -14,9 +15,9 @@ namespace Pirates
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        public void Move(float direction)
+        public void Move(Vector2 direction)
         {
-            _rigidbody.velocity = Vector2.right * (direction * (_speed * Time.fixedDeltaTime));
+            _rigidbody.velocity = direction * (_speed * Time.fixedDeltaTime);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Pirates
 {
@@ -7,16 +8,29 @@ namespace Pirates
     public class HeroInputReader : MonoBehaviour
     {
         private HeroMover _heroMover;
-        private float _direction;
+        private Vector2 _direction;
+
+        private PlayerInput _input;
 
         private void Awake()
         {
             _heroMover = GetComponent<HeroMover>();
+            _input = new PlayerInput();
         }
 
-        public void Update()
+        private void OnEnable()
         {
-            _direction = Input.GetAxis("Horizontal");
+            _input.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _input.Disable();
+        }
+
+        private void Update()
+        {
+            _direction = _input.Player.Movement.ReadValue<Vector2>();
         }
 
         private void FixedUpdate()
