@@ -1,21 +1,25 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Pirates
 {
     [RequireComponent(typeof(HeroMover))]
+    [RequireComponent(typeof(HeroJumper))]
     public class HeroInputReader : MonoBehaviour
     {
-        private HeroMover _heroMover;
-        private Vector2 _direction;
-
+        private HeroMover _mover;
+        private HeroJumper _jumper;
         private PlayerInput _input;
+
+        private float _direction;
 
         private void Awake()
         {
-            _heroMover = GetComponent<HeroMover>();
+            _mover = GetComponent<HeroMover>();
+            _jumper = GetComponent<HeroJumper>();
             _input = new PlayerInput();
+
+            // _input.Player.Jump.performed += OnJump;
         }
 
         private void OnEnable()
@@ -30,12 +34,21 @@ namespace Pirates
 
         private void Update()
         {
-            _direction = _input.Player.Movement.ReadValue<Vector2>();
+            _direction = _input.Player.Movement.ReadValue<float>();
+
+            if (_input.Player.Jump.IsPressed())
+            {
+                _jumper.StartJumping();
+            }
+            else
+            {
+                _jumper.StopJumping();
+            }
         }
 
         private void FixedUpdate()
         {
-            _heroMover.Move(_direction);
+            _mover.Move(_direction);
         }
     }
 }

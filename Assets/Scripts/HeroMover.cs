@@ -15,9 +15,9 @@ namespace Pirates
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        public void Move(Vector2 direction)
+        public void Move(float direction)
         {
-            _rigidbody.velocity = direction * (_speed * Time.fixedDeltaTime);
+            _rigidbody.velocity = new Vector2(direction * _speed * Time.fixedDeltaTime, _rigidbody.velocity.y);
         }
     }
 }

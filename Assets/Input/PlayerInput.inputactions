@@ -15,9 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
+                    "name": "Jump",
                     "type": "Button",
-                    "id": "006476d4-ac90-40fe-b0f5-03859a9b3cac",
+                    "id": "3e580dab-8c00-41d1-a9ae-65573cded2f5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -26,9 +26,9 @@
             ],
             "bindings": [
                 {
-                    "name": "2DVector",
-                    "id": "2d056e72-fcd2-4efe-94f3-649f96b7e2d5",
-                    "path": "2DVector",
+                    "name": "1D Axis",
+                    "id": "90ba2140-6649-4a58-8f2d-d20b15cd2593",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -37,30 +37,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "520c4565-836d-42e2-b397-41d4d4d620b6",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse and Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "98ff14c5-7454-40b6-ae55-cb6969b306a7",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse and Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "662c3a55-029f-42ac-9260-ab9e0a1af138",
+                    "name": "negative",
+                    "id": "c85e69a4-ba9c-4258-b3e8-ac73b06388a4",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -70,8 +48,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "83955535-c300-4e5b-9f08-02e2bc4a7292",
+                    "name": "positive",
+                    "id": "0842f601-024d-4bab-ae87-0d04c238eddb",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -82,12 +60,23 @@
                 },
                 {
                     "name": "",
-                    "id": "fc3a92fe-1d34-46d7-9939-c0633819a9a6",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "id": "3cdfca87-b547-463e-9165-f0980424fd02",
+                    "path": "<Keyboard>/w",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "Mouse and Keyboard",
-                    "action": "Shoot",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1380646-3aa3-478c-8efe-57a7840e5e8d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "Mouse and Keyboard",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
