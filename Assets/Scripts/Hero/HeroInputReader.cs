@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Pirates
 {
@@ -18,8 +17,6 @@ namespace Pirates
             _mover = GetComponent<HeroMover>();
             _jumper = GetComponent<HeroJumper>();
             _input = new PlayerInput();
-
-            // _input.Player.Jump.performed += OnJump;
         }
 
         private void OnEnable()

@@ -1,4 +1,5 @@
 using System;
+using Pirates.Components;
 using UnityEngine;
 
 namespace Pirates
@@ -7,11 +8,12 @@ namespace Pirates
     public class HeroJumper : MonoBehaviour
     {
         [SerializeField] private float _force = 200f;
+        [SerializeField] private LayerChecker _groundChecker;
 
         private Rigidbody2D _rigidbody;
-
         private bool _isJumping;
-        private bool _isGround;
+
+        private const float ReducingForce = 0.5f;
 
         private void Awake()
         {
@@ -22,25 +24,14 @@ namespace Pirates
         {
             if (_isJumping == true)
             {
-                if (_isGround == true)
+                if (IsGround() && _rigidbody.velocity.y <= 0.001f)
                 {
                     _rigidbody.AddForce(Vector2.up * _force, ForceMode2D.Impulse);
-                    _isGround = false;
                 }
             }
             else if (_rigidbody.velocity.y > 0)
             {
-                var velocity = _rigidbody.velocity;
-                velocity = new Vector2(velocity.x, velocity.y * 0.5f);
-                _rigidbody.velocity = velocity;
-            }
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.TryGetComponent(out Ground _))
-            {
-                _isGround = true;
+                ReduceForceBy(ReducingForce);
             }
         }
 
@@ -52,6 +43,18 @@ namespace Pirates
         public void StopJumping()
         {
             _isJumping = false;
+        }
+
+        private void ReduceForceBy(float value)
+        {
+            var velocity = _rigidbody.velocity;
+            velocity = new Vector2(velocity.x, velocity.y * value);
+            _rigidbody.velocity = velocity;
+        }
+
+        private bool IsGround()
+        {
+            return _groundChecker.IsTouchingLayer;
         }
     }
 }
