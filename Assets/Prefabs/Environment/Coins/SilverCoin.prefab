@@ -31,6 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2906413557926070301}
+  - {fileID: 3321599476351511934}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,9 +48,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.02, y: 0.03}
   serializedVersion: 2
-  m_Radius: 0.018
+  m_Radius: 0.17
 --- !u!114 &2906413556854523732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +64,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 1
+  _onTaken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2906413557926070300}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4503902164752454153}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &2906413557926070275
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2906413557926070301}
   - component: {fileID: 2906413557926070300}
+  - component: {fileID: 6351008339918810887}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -133,8 +162,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -678053539
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -862253103, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -147,3 +176,226 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6351008339918810887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2906413557926070275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb120b744a67bc4ab2aaa6bcbc9fd2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _spriteClips:
+  - _name: Rotation
+    _sprites:
+    - {fileID: -862253103, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - {fileID: 788765205, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - {fileID: -1428851533, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - {fileID: 1072049266, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    _loop: 1
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2906413556854523732}
+          m_TargetAssemblyTypeName: Pirates.Coin, Assembly-CSharp
+          m_MethodName: Take
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1001 &4629923292276552429
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2906413556854523738}
+    m_Modifications:
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._name
+      value: DestroyCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._name
+      value: DestroyCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1580104015, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -470893814, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1318207772, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1580104015, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -470893814, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1318207772, guid: 812583fa5de65e342a10be5281e0dc61, type: 3}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2906413556854523737}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._onComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._onComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2906413556854523737}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2906413556854523737}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[0]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003641489477712845, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: _spriteClips.Array.data[1]._onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133820748096184548, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_Name
+      value: DestroyCoinEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133820748096184548, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+--- !u!4 &3321599476351511934 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7951241018773168019, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+  m_PrefabInstance: {fileID: 4629923292276552429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4503902164752454153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9133820748096184548, guid: 8844270592a6dd741849e340e6db3b30, type: 3}
+  m_PrefabInstance: {fileID: 4629923292276552429}
+  m_PrefabAsset: {fileID: 0}

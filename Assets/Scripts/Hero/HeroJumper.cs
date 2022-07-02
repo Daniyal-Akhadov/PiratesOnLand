@@ -12,19 +12,23 @@ namespace Pirates
 
         private Rigidbody2D _rigidbody;
         private bool _isJumping;
+        private Animator _animator;
 
         private const float ReducingForce = 0.5f;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _animator = GetComponentInChildren<Animator>();
         }
 
         private void FixedUpdate()
         {
+            var isGround = IsGround();
+
             if (_isJumping == true)
             {
-                if (IsGround() && _rigidbody.velocity.y <= 0.001f)
+                if (isGround && _rigidbody.velocity.y <= 0.001f)
                 {
                     _rigidbody.AddForce(Vector2.up * _force, ForceMode2D.Impulse);
                 }
@@ -33,6 +37,9 @@ namespace Pirates
             {
                 ReduceForceBy(ReducingForce);
             }
+
+            _animator.SetBool(HeroAnimation.IsGround, isGround);
+            _animator.SetFloat(HeroAnimation.VerticalVelocity, _rigidbody.velocity.y);
         }
 
         public void StartJumping()

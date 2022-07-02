@@ -15,8 +15,7 @@ namespace Pirates
                 throw new ArgumentOutOfRangeException($"Value <= 0: {value}");
 
             _score += value;
-            Destroy(coin.gameObject);
-
+            coin.Take();
             print($"Score: {_score}");
         }
 

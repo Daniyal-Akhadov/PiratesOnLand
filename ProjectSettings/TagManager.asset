@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Level
+  - name: BackEnvironment
+    uniqueID: 2705504467
+    locked: 0
+  - name: InteractiveItem
+    uniqueID: 3616913757
+    locked: 0
+  - name: AlliveInstance
+    uniqueID: 3360519379
+    locked: 0
+  - name: Background
     uniqueID: 3865673273
     locked: 0
